@@ -1,6 +1,6 @@
 node{
     stage('scm checkout'){
-       git 'https://github.com/aadireddy/game-of-life.git'
+       git 'https://github.com/aadireddy/azure-cosmos-java-getting-started.git'
     }
     stage('build'){
         def mvnHome = tool name: 'maven', type: 'maven'
