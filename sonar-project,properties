@@ -1,5 +1,5 @@
 
-sonar.projectKey=Azure-Pipe
+sonar.projectKey=azure
 sonar.projectName=Azure-Pipe
 sonar.projectVersion=1.0
 
