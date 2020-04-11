@@ -22,4 +22,7 @@ node{
               }
           }
       }
+    stage('nexus artifacts'){
+    nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'azure/target/azure-cosmos-java-getting-started-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'azure-cosmos-java-getting-started', groupId: 'com.azure', packaging: 'jar', version: '$BUILD_NUMBER']]]
+    }
  }
