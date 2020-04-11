@@ -25,4 +25,13 @@ node{
     stage('nexus artifacts'){
     nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/azure/target/azure-cosmos-java-getting-started-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'azure-cosmos-java-getting-started', groupId: 'com.azure', packaging: 'jar', version: '$BUILD_NUMBER']]]
     }
+    stage('build docker image'){
+        sh 'docker build -t aadireddy/azure:$BUILD_NUMBER .'
+    }
+    stage('push docker image'){
+        withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
+        sh "docker login -u aadireddy -p ${dockerhubpwd}"
+        }
+        sh 'docker push aadireddy/azure:$BUILD_NUMBER'
+    }
  }
