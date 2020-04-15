@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: azure-service
 spec:
   selector:
-    app: MyApp
+    app: azure
   ports:
     - protocol: TCP
       port: 8080
