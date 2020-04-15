@@ -20,12 +20,12 @@ node{
         sh 'docker push aadireddy/azure:$BUILD_NUMBER'
     }
     stage('update image version'){
-    sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ azure-deploy.yml'''    
+    sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ azzure-deploy.yml'''    
     
     }
     stage('deploy to kubernetes'){
         kubernetesDeploy(
-        configs: 'azure-deploy.yml',
+        configs: 'azzure-deploy.yml',
         kubeconfigId: 'k8s_credential_config',
         enableConfigSubstitution: true
         )
