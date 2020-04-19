@@ -15,9 +15,9 @@ node{
     }
     stage('push docker image'){
         withCredentials([string(credentialsId: 'hub-pwd', variable: 'hub_pwd')]) {
-        sh 'docker login -u aasireddy -p ${hub_pwd}'
+        sh "docker login -u aasireddy -p ${hub_pwd}"
     }
-        sh 'docker push 'aadireddy/azure:$BUILD_NUMBER'
+        sh 'docker push aadireddy/azure:$BUILD_NUMBER'
     }
     stage('update image version'){
         sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ azzure-deploy.yml'''    
