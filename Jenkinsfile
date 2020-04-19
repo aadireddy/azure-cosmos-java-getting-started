@@ -24,7 +24,7 @@ node{
     }
     stage('deploy to kubernetes'){
         kubernetesDeploy(
-        configs: 'devcenter-deploy.yml',
+        configs: 'azzure-deploy.yml',
         kubeconfigId: 'k8s_config',
         enableConfigSubstitution: true
         )
