@@ -15,7 +15,7 @@ node{
     }
     stage('push docker image'){
         withCredentials([string(credentialsId: 'hub-pwd', variable: 'hub_pwd')]) {
-        sh "docker login -u aasireddy -p ${hub_pwd}"
+        sh "docker login -u aadireddy -p ${hub_pwd}"
     }
         sh 'docker push aadireddy/azure:$BUILD_NUMBER'
     }
